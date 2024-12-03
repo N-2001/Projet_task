@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ task is defined ? 'Modifier la tâche' : 'Créer une tâche' }}{% endblock %}
+
+{% block body %}
+<h1>{{ task is defined ? 'Modifier la tâche' : 'Créer une tâche' }}</h1>
+
+{{ form_start(form) }}
+    {{ form_row(form.title) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.status) }}
+
+    <button type="submit">{{ task is defined ? 'Mettre à jour' : 'Créer' }}</button>
+{{ form_end(form) }}
+{% endblock %}

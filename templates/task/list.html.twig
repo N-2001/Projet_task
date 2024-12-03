@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des tâches{% endblock %}
+
+{% block body %}
+<h1>Liste des tâches</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Statut</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.title }}</td>
+            <td>{{ task.status }}</td>
+            <td>
+                <a href="{{ path('task_edit', { id: task.id }) }}">Modifier</a> |
+                <a href="{{ path('task_delete', { id: task.id }) }}" onclick="return confirm('Confirmer la suppression ?')">Supprimer</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="3">Aucune tâche trouvée.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Task Manager{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ path('task_list') }}">Liste des tâches</a></li>
+                <li><a href="{{ path('task_create') }}">Créer une tâche</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+</body>
+</html>
